@@ -1,0 +1,515 @@
+/* 🎮 Botola Brazil - Gaming Theme - Optimized Version */
+
+/* ===== CSS Variables for Consistency ===== */
+:root {
+  /* Colors */
+  --primary-red: #ff3333;
+  --dark-red: #b30000;
+  --darker-red: #8b0000;
+  --background-dark: rgba(13, 13, 13, 0.95);
+  --card-dark: rgba(30, 30, 30, 0.9);
+  --rules-bg: rgba(40, 0, 0, 0.6); /* transparent */
+  --admin-bg: rgba(25, 0, 0, 0.6); /* transparent */
+
+  /* Typography */
+  --font-primary: 'Share Tech Mono', monospace;
+  --font-heading: 'Share Tech Mono', monospace;
+
+  /* Spacing */
+  --space-xs: 0.3rem;
+  --space-sm: 0.6rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 15px;
+
+  /* Shadows */
+  --shadow-glow: 0 0 10px rgba(255, 0, 0, 0.25);
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.5);
+  --shadow-heavy: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+/* ===== Reset and Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('../assest/bk.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #0a0a0a;
+  font-family: var(--font-primary);
+  line-height: 1.5;
+  color: white;
+  min-height: 100vh;
+  caret-color: var(--primary-red);
+}
+
+*:focus {
+  outline: 2px solid var(--primary-red);
+  outline-offset: 2px;
+}
+
+/* ===== Main App Container ===== */
+.app-container {
+  color: white;
+  padding: var(--space-sm);
+  border-radius: var(--radius-lg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ===== Header Styles ===== */
+.header {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--primary-red);
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  box-shadow: none;
+}
+
+.header h1 {
+  color: var(--primary-red);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+}
+
+.header p {
+  color: yellow;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== Rules Section ===== */
+.rules-section {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  background: var(--rules-bg);
+  box-shadow: var(--shadow-glow);
+}
+
+.rules-section h2 {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: yellow;
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+}
+
+.rules-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.rules-section li {
+  margin-bottom: var(--space-sm);
+  padding: var(--space-xs);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary-red);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.rules-section li:before {
+  content: "•";
+  color: var(--primary-red);
+  font-weight: bold;
+  margin-right: var(--space-xs);
+}
+
+.rules-section input {
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: white;
+  font-size: 0.9rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.rules-section input::placeholder {
+  color: #888;
+}
+
+.rules-section button {
+  background: linear-gradient(135deg, #ff5555, #cc0000);
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.rules-section button:hover {
+  background: linear-gradient(135deg, #cc0000, #990000);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3);
+}
+
+.rules-section button:active {
+  transform: translateY(0);
+}
+
+.rules-section button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ===== Form Section ===== */
+.form-section {
+  background: var(--card-dark);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--primary-red);
+  box-shadow: var(--shadow-heavy);
+}
+
+.form-section h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: var(--primary-red);
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+}
+
+.squad-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.squad-form input {
+  padding: var(--space-xs);
+  border: 1px solid #444;
+  border-radius: var(--radius-sm);
+  background: #1a1a1a;
+  color: white;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.squad-form input:focus {
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 2px rgba(255, 51, 51, 0.2);
+}
+
+.squad-form input::placeholder {
+  color: #888;
+  font-weight: normal;
+}
+
+.player-row {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.player-row input {
+  flex: 1 1 200px;
+  min-width: 150px;
+}
+
+/* ===== Button Styles ===== */
+.btn {
+  background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, var(--dark-red), var(--darker-red));
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn.accept {
+  background: linear-gradient(135deg, #00aa00, #008800);
+}
+
+.btn.accept:hover {
+  background: linear-gradient(135deg, #008800, #006600);
+}
+
+.btn.delete {
+  background: linear-gradient(135deg, var(--darker-red), #600000);
+}
+
+.btn.delete:hover {
+  background: linear-gradient(135deg, #600000, #400000);
+}
+
+/* ===== Admin Section ===== */
+.admin-section {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  background: var(--admin-bg);
+  box-shadow: var(--shadow-heavy);
+}
+
+.admin-section h2 {
+  color: yellow;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
+  margin-bottom: var(--space-sm);
+}
+
+.admin-section input[type="password"] {
+  padding: var(--space-xs);
+  border: 1px solid #444;
+  border-radius: var(--radius-sm);
+  background: #1a1a1a;
+  color: white;
+  font-size: 0.9rem;
+  margin-right: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  width: 100%;
+  max-width: 300px;
+}
+
+.admin-panel {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping */
+  gap: var(--space-sm);
+}
+
+/* ===== Squad Card - Fit Content & Compact ===== */
+.squad-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-xs);
+  background: rgba(50, 0, 0, 0.7);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--primary-red);
+  box-shadow: var(--shadow-card);
+  font-size: 0.9rem; /* slightly bigger text */
+  margin-bottom: var(--space-sm);
+  width: auto; /* fit content */
+  min-width: 120px;
+}
+
+.squad-card h4 {
+  color: var(--primary-red);
+  margin-bottom: var(--space-xs);
+  font-size: 1.05rem; /* slightly bigger */
+}
+
+.squad-card p {
+  margin: var(--space-xs) 0;
+  color: #e0e0e0;
+  font-size: 0.9rem; /* slightly bigger */
+}
+
+/* ===== Success Message ===== */
+.success-message {
+  color: #00ff00;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  padding: var(--space-xs);
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid #00ff00;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+/* ===== Utility Classes ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ===== Responsive Design ===== */
+@media (min-width: 768px) {
+  .app-container {
+    padding: var(--space-md);
+    gap: var(--space-lg);
+  }
+
+  .squad-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .player-row {
+    flex-wrap: nowrap;
+  }
+
+  .admin-section input[type="password"] {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .header-info {
+    gap: var(--space-xl);
+  }
+}
+
+/* Desktop Layout */
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "header header"
+      "form rules"
+      "admin admin";
+    gap: var(--space-lg);
+  }
+
+  .header {
+    grid-area: header;
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+
+  .rules-section {
+    grid-area: rules;
+    align-self: start;
+  }
+
+  .form-section {
+    grid-area: form;
+    align-self: start;
+  }
+
+  .admin-section {
+    grid-area: admin;
+  }
+
+  .form-section,
+  .rules-section {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .squad-card .btn {
+    margin-right: var(--space-sm);
+    margin-bottom: 0;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .app-container {
+    max-width: 1400px;
+    padding: var(--space-xl);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .btn,
+  .admin-section,
+  .form-section input,
+  .form-section button {
+    display: none !important;
+  }
+
+  .app-container {
+    background: white;
+    color: black;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-red: #ff0000;
+    --background-dark: #000000;
+    --card-dark: #111111;
+  }
+
+  .squad-form input,
+  .rules-section input,
+  .admin-section input {
+    border-width: 2px;
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "rules": [
+    "\u0645\u0645\u0646\u0648\u0639 \u0633\u0637\u0648\u062d\u0627"
+  ],
+  "contributors": [
+    {
+      "squadName": "lmahadida",
+      "players": [
+        {
+          "name": "lmhdod1",
+          "id": "123"
+        },
+        {
+          "name": "lmhdod2",
+          "id": "123"
+        },
+        {
+          "name": "lmhdod3",
+          "id": "123"
+        },
+        {
+          "name": "lmhdod4",
+          "id": "123"
+        },
+        {
+          "name": "",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "squadName": "lklawat",
+      "players": [
+        {
+          "name": "klawi1",
+          "id": "123"
+        },
+        {
+          "name": "klawi1",
+          "id": "123"
+        },
+        {
+          "name": "klawi1",
+          "id": "123"
+        },
+        {
+          "name": "klawi1",
+          "id": "123"
+        },
+        {
+          "name": "",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "squadName": "nwaba",
+      "players": [
+        {
+          "name": "noob1",
+          "id": "123"
+        },
+        {
+          "name": "noob1",
+          "id": "123"
+        },
+        {
+          "name": "noob1",
+          "id": "123"
+        },
+        {
+          "name": "noob1",
+          "id": "123"
+        },
+        {
+          "name": "",
+          "id": ""
+        }
+      ]
+    },
+    {
+      "squadName": "testers",
+      "players": [
+        {
+          "name": "test1",
+          "id": "123"
+        },
+        {
+          "name": "test1",
+          "id": "123"
+        },
+        {
+          "name": "test1",
+          "id": "123"
+        },
+        {
+          "name": "test1",
+          "id": "123"
+        },
+        {
+          "name": "",
+          "id": ""
+        }
+      ]
+    }
+  ]
+}

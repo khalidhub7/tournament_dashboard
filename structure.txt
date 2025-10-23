@@ -1,0 +1,20 @@
+.
+├── .babelrc
+├── backend
+│   ├── .env
+│   ├── db.json
+│   └── server.py
+├── db.json
+├── package-lock.json
+├── package.json
+├── public
+│   └── index.html
+├── setup.sh
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   └── index.js
+├── structure.txt
+└── webpack.config.js
+
+3 directories, 14 files
