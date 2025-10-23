@@ -9,7 +9,7 @@ const App = () => {
   const ORGANIZER = "Vinsmoke";
 
   // Backend URL
-  const API_URL = "http://localhost:5000/api";
+  const API_URL = "https://khalidshift.pythonanywhere.com/api";
 
   // Form state
   const [formData, setFormData] = useState({

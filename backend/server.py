@@ -135,5 +135,5 @@ def check_admin():
     return jsonify({"admin": False}), 403
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+""" if __name__ == "__main__":
+    app.run(debug=True) """
