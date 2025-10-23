@@ -1,5 +1,6 @@
 import os
 import json
+import subprocess
 from flask_cors import CORS
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
@@ -29,6 +30,21 @@ def write_db(data):
         json.dump(data, f, indent=2)
 
 
+def push_db_to_github():
+    repo_url = f"https://{os.getenv('GITHUB_TOKEN')}@github.com/{os.getenv('GITHUB_REPO')}.git"
+    branch = os.getenv("GITHUB_BRANCH", "main")
+
+    subprocess.run(["git", "add", "db.json"])
+    subprocess.run(
+        ["git", "commit", "-m", "Update db.json"],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
+    subprocess.run(
+        ["git", "push", repo_url, branch],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
+
+
 # Routes
 
 @app.route("/api/rules", methods=["GET"])
@@ -49,6 +65,7 @@ def add_rule():
     db = read_db()
     db["rules"].append(rule)
     write_db(db)
+    push_db_to_github()
     return jsonify(
         {"message": "Rule added", "rules": db["rules"]}
     )
@@ -65,6 +82,7 @@ def delete_rule(index):
     if 0 <= index < len(db["rules"]):
         db["rules"].pop(index)
         write_db(db)
+        push_db_to_github()
         return jsonify(
             {"message": "Rule deleted", "rules": db["rules"]}
         )
@@ -84,6 +102,7 @@ def add_contributor():
     db = read_db()
     db["contributors"].append(data)
     write_db(db)
+    push_db_to_github()
     return jsonify({"message": "Contributor added",
                    "contributors": db["contributors"]})
 
@@ -99,6 +118,7 @@ def delete_contributor(index):
     if 0 <= index < len(db["contributors"]):
         db["contributors"].pop(index)
         write_db(db)
+        push_db_to_github()
         return jsonify({"message": "Contributor deleted",
                        "contributors": db["contributors"]})
     else:
