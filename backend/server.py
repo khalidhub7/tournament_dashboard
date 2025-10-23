@@ -1,5 +1,6 @@
 import os
 import json
+import threading
 import subprocess
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -44,6 +45,10 @@ def push_db_to_github():
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
     )
 
+def push_db_async():
+    thread = threading.Thread(target=push_db_to_github)
+    thread.start()
+
 
 # Routes
 
@@ -65,7 +70,7 @@ def add_rule():
     db = read_db()
     db["rules"].append(rule)
     write_db(db)
-    push_db_to_github()
+    push_db_async()
     return jsonify(
         {"message": "Rule added", "rules": db["rules"]}
     )
@@ -82,7 +87,7 @@ def delete_rule(index):
     if 0 <= index < len(db["rules"]):
         db["rules"].pop(index)
         write_db(db)
-        push_db_to_github()
+        push_db_async()
         return jsonify(
             {"message": "Rule deleted", "rules": db["rules"]}
         )
@@ -102,7 +107,7 @@ def add_contributor():
     db = read_db()
     db["contributors"].append(data)
     write_db(db)
-    push_db_to_github()
+    push_db_async()
     return jsonify({"message": "Contributor added",
                    "contributors": db["contributors"]})
 
@@ -118,7 +123,7 @@ def delete_contributor(index):
     if 0 <= index < len(db["contributors"]):
         db["contributors"].pop(index)
         write_db(db)
-        push_db_to_github()
+        push_db_async()
         return jsonify({"message": "Contributor deleted",
                        "contributors": db["contributors"]})
     else:
